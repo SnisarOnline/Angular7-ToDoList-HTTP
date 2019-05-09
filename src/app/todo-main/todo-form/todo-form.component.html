@@ -1,0 +1,15 @@
+<form class="todo-form"
+      (ngSubmit)="createTasks(); formInputVal.reset()" #formInputVal="ngForm">
+
+  <input type="text" name="title" autofocus required
+         placeholder="Добавить задание . . ."
+         [(ngModel)]="newTodo.title" >
+
+  <button type="submit"
+          [disabled]="formInputVal.invalid">Добавить</button>
+
+  <input type="text" name="body" *ngIf="newTodo.title"
+         [(ngModel)]="newTodo.body"
+         placeholder="Подробное Описание . . ." autofocus required autocomplete="off">
+
+</form>
